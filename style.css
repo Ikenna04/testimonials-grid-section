@@ -1,0 +1,296 @@
+/* | IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+/* | CSS RESET */
+*,
+*::before {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/* | VARIABLES */
+:root {
+	/* | COLORS */
+	--moderate-violet: hsl(263, 55%, 52%);
+	--moderate-violet-op: hsl(263, 74%, 64%);
+	--very-dark-grayish-blue: hsl(217, 19%, 35%);
+	--very-dark-blackish-blue: hsl(219, 29%, 14%);
+	--white: hsl(0, 0%, 100%);
+	--light-gray: hsl(0, 0%, 81%);
+	--light-grayish-blue: hsl(210, 46%, 95%);
+
+	/* | FONTS */
+	--body-font: 500 13px 'Barlow Semi Condensed';
+	--h1-font: 600 20px 'Barlow Semi Condensed';
+	--h2-font: 600 13px 'Barlow Semi Condensed';
+}
+
+/* | GENERAL STYLES */
+html {
+	max-width: 100%;
+	aspect-ratio: 8/5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+body {
+	margin-inline: auto;
+	padding: 164px;
+	display: grid;
+	align-items: center;
+	grid-template-columns: repeat(1, 3fr 1fr);
+	grid-auto-rows: 100%;
+	grid-template-areas: 'mn sb';
+	gap: 24px;
+	background-color: var(--light-grayish-blue);
+	font: var(--body-font);
+}
+
+.container {
+	grid-area: mn;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-columns: 250px;
+	gap: 24px;
+}
+
+.sections {
+	min-height: 100px;
+	padding: 26px 32px;
+	border-radius: 8px;
+	box-shadow: 0 0 100px -50px var(--very-dark-grayish-blue);
+	background-color: var(--white);
+	display: flex;
+	flex-flow: column;
+	gap: 20px;
+}
+
+.mv {
+	background-color: var(--moderate-violet);
+	grid-column: 1 / 3;
+	position: relative;
+}
+
+.quote {
+	width: 104px;
+	height: 102px;
+	position: absolute;
+	top: -10px;
+	right: 80px;
+	font-size: 120px;
+	color: var(--moderate-violet-op);
+}
+
+.quote img {
+	width: 100%;
+	height: 100%;
+}
+
+.g {
+	background-color: var(--very-dark-grayish-blue);
+}
+
+.db {
+	background-color: var(--very-dark-blackish-blue);
+	grid-column: 2 / 4;
+}
+
+.sidebar {
+	height: 100%;
+	grid-area: sb;
+	line-height: 1.4;
+	justify-content: center;
+}
+
+.avatar-section {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 15px;
+}
+
+.avatar-img {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 1px solid var(--light-grayish-blue);
+}
+
+.avatar-img img {
+	width: 100%;
+	height: auto;
+}
+
+.avatar-name {
+	line-height: 1;
+}
+
+h2 {
+	font: var(--h2-font);
+}
+
+.bm {
+	border-color: var(--moderate-violet-op);
+}
+
+.text-area {
+	display: flex;
+	flex-flow: column;
+	gap: 28px;
+}
+
+h1 {
+	font: var(--h1-font);
+	z-index: 5;
+}
+
+.cw {
+	color: var(--light-gray);
+}
+
+.cb {
+	color: var(--very-dark-blackish-blue);
+}
+
+h2 + p {
+	opacity: 0.5;
+}
+
+h1 + p {
+	opacity: 0.7;
+}
+
+@media screen and (max-width: 1250px) {
+	body {
+		padding: 60px;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	html {
+		max-width: 1000px;
+	}
+
+	body {
+		padding: 164px;
+		align-items: start;
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: repeat(1, 10fr 4fr);
+		grid-template-areas:
+			'mn'
+			'sb';
+	}
+}
+
+@media screen and (max-width: 750px) {
+	/* | VARIABLES */
+	:root {
+		/* | FONTS */
+		--body-font: 500 26px 'Barlow Semi Condensed';
+		--h1-font: 600 40px 'Barlow Semi Condensed';
+		--h2-font: 600 26px 'Barlow Semi Condensed';
+	}
+
+	/* | GENERAL STYLES */
+	html {
+		max-width: 750px;
+	}
+
+	body {
+		padding: 142px 48px;
+	}
+
+	.sections {
+		padding: 48px 64px;
+		border-radius: 16px;
+		gap: 40px;
+	}
+
+	.quote {
+		display: none;
+	}
+
+	.mv {
+		grid-column: 1 / 4;
+		grid-row: 1 / 2;
+	}
+
+	.g {
+		grid-column: 1 / 4;
+		grid-row: 2 / 3;
+	}
+
+	.jh {
+		grid-column: 1 / 4;
+		grid-row: 3 / 4;
+	}
+
+	.db {
+		grid-column: 1 / 4;
+		grid-row: 4 / 5;
+	}
+
+	.avatar-section {
+		gap: 30px;
+	}
+
+	.avatar-img {
+		width: 64px;
+		height: 64px;
+	}
+
+	.text-area {
+		gap: 36px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	/* | VARIABLES */
+	:root {
+		/* | FONTS */
+		--body-font: 500 20px 'Barlow Semi Condensed';
+		--h1-font: 600 30px 'Barlow Semi Condensed';
+		--h2-font: 600 20px 'Barlow Semi Condensed';
+	}
+}
+
+@media screen and (max-width: 375px) {
+	/* | VARIABLES */
+	:root {
+		/* | FONTS */
+		--body-font: 500 13px 'Barlow Semi Condensed';
+		--h1-font: 600 20px 'Barlow Semi Condensed';
+		--h2-font: 600 13px 'Barlow Semi Condensed';
+	}
+
+	/* | GENERAL STYLES */
+	html {
+		max-width: 375px;
+	}
+
+	body {
+		padding: 71px 24px;
+	}
+
+	.sections {
+		padding: 24px 32px;
+		border-radius: 8px;
+		gap: 20px;
+	}
+
+	.avatar-section {
+		gap: 15px;
+	}
+
+	.avatar-img {
+		width: 32px;
+		height: 32px;
+	}
+
+	.text-area {
+		gap: 18px;
+	}
+}
